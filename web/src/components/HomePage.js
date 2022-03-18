@@ -1,11 +1,12 @@
+import HeaderHomePage from "./HeaderHomePage";
 
-import HeaderHomePage from "./HeaderHomePage"
-
-const HomePage = () => {
-  
+const HomePage = (props) => {
   return (
     <>
-    <HeaderHomePage/>
+      <HeaderHomePage
+        searchEngine={props.searchEngine}
+        handleSearchEngine={props.handleSearchEngine}
+      />
     </>
   );
 };

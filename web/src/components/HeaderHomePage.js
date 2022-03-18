@@ -1,8 +1,6 @@
-import search from "../images/search.svg";
 import bell from "../images/bell-solid.svg";
 import "bootstrap/dist/css/bootstrap.min.css"; //adding bootstrap
 import "../styles/layout/HomePage.scss";
-
 import {
   Dropdown,
   DropdownToggle,
@@ -11,14 +9,15 @@ import {
 } from "reactstrap";
 import { useState } from "react";
 
-const HeaderHomePage = () => {
+const HeaderHomePage = (props) => {
   const [dropdown, setDropdown] = useState(false); //State fro dropdown
-  const [searchEngine, setSearchEngine] = useState('')
 
-
-  const handleSearchEngine = (ev) => {
-      setSearchEngine(ev.currentTarget.value)
-  }
+  const handleInput = (ev) => {
+    props.handleSearchEngine({
+      key: "name",
+      value: ev.currentTarget.value,
+    });
+  };
 
   const openCloseDropDown = () => {
     setDropdown(!dropdown);
@@ -58,7 +57,13 @@ const HeaderHomePage = () => {
             <ul className="homePageHeader__actionsNavList">
               <li className="homePageHeader__actionsNavList--item">
                 <div class="input-wrapper">
-                  <input type="search" className="input" placeholder="title, gender..." onChange={handleSearchEngine} value={searchEngine}/>
+                  <input
+                    type="search"
+                    className="input"
+                    placeholder="title, gender..."
+                    onChange={handleInput}
+                    value={props.searchEngine}
+                  />
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

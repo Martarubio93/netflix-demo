@@ -5,12 +5,21 @@ import SignIn from "./SignIn";
 import router from "../services/router";
 import { useEffect, useState } from "react";
 import apiUser from "../services/api";
-import HomePage from "./HomePage"
-import { Route, Switch } from 'react-router-dom';
-
+import HomePage from "./HomePage";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
+  const [searchEngine, setSearchEngine] = useState("");
+
+  //Handle function to save value from inputs
+  const handleSearchEngine = (data) => {
+    if (data.key === "name") {
+      setSearchEngine(data.value);
+    } else if (data.key === "") {
+      console.log("lalio");
+    }
+  };
 
   const sendLoginToApi = (loginData) => {
     // We've to clear the errorMessage
@@ -30,20 +39,21 @@ function App() {
   return (
     <div className="App">
       <Switch>
-      <Route exact path="/">
-      <div className="imageBackground">
-        <Header />
-        <SignIn
-          sendLoginToApi={sendLoginToApi}
-          loginErrorMessage={loginErrorMessage}
-          
-        />
-      </div>
-      </Route>
-      <Route exact path ="/HomePage">
-        <HomePage/>
-      </Route>
-
+        <Route exact path="/">
+          <div className="imageBackground">
+            <Header />
+            <SignIn
+              sendLoginToApi={sendLoginToApi}
+              loginErrorMessage={loginErrorMessage}
+            />
+          </div>
+        </Route>
+        <Route exact path="/HomePage">
+          <HomePage
+            searchEngine={searchEngine}
+            handleSearchEngine={handleSearchEngine}
+          />
+        </Route>
       </Switch>
     </div>
   );
