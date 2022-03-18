@@ -1,15 +1,19 @@
-const sendLoginToApi = async (data) => {
-    console.log("Se están enviando datos al login:", data);
-    const response = await fetch("http://localhost:4000/login", {
-    method: "POST",
+
+const sendLoginToApi = (data) => {
+  console.log('Se están enviando datos al login:', data);
+  return fetch('http://localhost:4000/login', {
+    method: 'POST',
+    //Send email and password by body params
     body: JSON.stringify(data),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-  });
-  const data_2 = await response.json();
-  return data_2;
-  };
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data; //server response
+    });
+};
 
 
   const objToExport = {

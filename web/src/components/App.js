@@ -5,6 +5,9 @@ import SignIn from "./SignIn";
 import router from "../services/router";
 import { useEffect, useState } from "react";
 import apiUser from "../services/api";
+import HomePage from "./HomePage"
+import { Route, Switch } from 'react-router-dom';
+
 
 function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
@@ -16,7 +19,7 @@ function App() {
     apiUser.sendLoginToApi(loginData).then((response) => {
       if (response.success === true) {
         //If the user introduces the correct data we redirect to the home page
-        router.redirect("/");
+        router.redirect("/homePage");
       } else {
         //If the user introduces incorrect data we saved the error from the Api and render it in the web
         setLoginErrorMessage(response.errorMessage);
@@ -26,13 +29,22 @@ function App() {
 
   return (
     <div className="App">
+      <Switch>
+      <Route exact path="/">
       <div className="imageBackground">
         <Header />
         <SignIn
           sendLoginToApi={sendLoginToApi}
           loginErrorMessage={loginErrorMessage}
+          
         />
       </div>
+      </Route>
+      <Route exact path ="/HomePage">
+        <HomePage/>
+      </Route>
+
+      </Switch>
     </div>
   );
 }
