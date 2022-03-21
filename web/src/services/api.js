@@ -1,12 +1,11 @@
-
 const sendLoginToApi = (data) => {
-  console.log('Se están enviando datos al login:', data);
-  return fetch('http://localhost:4000/login', {
-    method: 'POST',
+  console.log("Sending data to login:", data);
+  return fetch("http://localhost:4000/login", {
+    method: "POST",
     //Send email and password by body params
     body: JSON.stringify(data),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   })
     .then((response) => response.json())
@@ -16,9 +15,9 @@ const sendLoginToApi = (data) => {
 };
 
 
-  const objToExport = {
-    sendLoginToApi: sendLoginToApi,
-  };
-  
-  export default objToExport;
-  
+
+const objToExport = {
+  sendLoginToApi: sendLoginToApi,
+};
+
+export default objToExport;

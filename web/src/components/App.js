@@ -1,16 +1,22 @@
+//Styles imports
 import "../styles/core/Reset.scss";
 import "../styles/layout/Main.scss";
+//Components imports
 import Header from "./Header";
 import SignIn from "./SignIn";
 import router from "../services/router";
-import { useEffect, useState } from "react";
-import apiUser from "../services/api";
 import HomePage from "./HomePage";
+import { useEffect, useState } from "react";
+//Fetch imports
+import apiUser from "../services/api";
+import callToApi from "../services/fetch";
+//functionals imports
 import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [searchEngine, setSearchEngine] = useState("");
+  const [filmsFromApi, setFilmsFromApi] = useState([]);
 
   //Handle function to save value from inputs
   const handleSearchEngine = (data) => {
@@ -21,6 +27,8 @@ function App() {
     }
   };
 
+  //CONNECTIONS WITH SERVERS
+  //Send email and password to Server
   const sendLoginToApi = (loginData) => {
     // We've to clear the errorMessage
     setLoginErrorMessage("");
@@ -35,6 +43,16 @@ function App() {
       }
     });
   };
+  //Receiving films from API
+  useEffect(() => {
+    callToApi().then((response) => {
+      console.log(response);
+      //When we've received data from API, we keep it in state (filmsFromApi)
+      setFilmsFromApi(response);
+      console.log(filmsFromApi);
+    });
+    //empty array to call to the api just ONCE
+  }, []);
 
   return (
     <div className="App">
@@ -52,6 +70,7 @@ function App() {
           <HomePage
             searchEngine={searchEngine}
             handleSearchEngine={handleSearchEngine}
+            filmsFromApi={filmsFromApi}
           />
         </Route>
       </Switch>
