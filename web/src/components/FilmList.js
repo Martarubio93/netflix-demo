@@ -1,12 +1,27 @@
 const FilmList = (props) => {
-    return props.filmsFromApi.map((film, index) => {
-        return (
-          <li key={index} id={film.id} className="filmList">
-           <h3>{film.name}</h3>
-           <img src={film.image}/>
-          </li>
-        );
-      });
+  const renderList = () => {
+    debugger
+    return (
+      props.filmsFromApi
+         .filter((film )=> {
+           return film.name.toLowerCase().includes(props.searchEngine.toLowerCase())
+    })
+        .map((film, index) => {
+          return (
+            <li key={index} id={film.id}>
+              <h3>{film.name}</h3>
+              <img src={film.image} alt="film"></img>
+            </li>
+          );
+        })
+    );
   };
 
-export default FilmList
+  return (
+    <section>
+      <ul>{renderList()}</ul>
+    </section>
+  );
+};
+
+export default FilmList;

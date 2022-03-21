@@ -49,7 +49,6 @@ function App() {
       console.log(response);
       //When we've received data from API, we keep it in state (filmsFromApi)
       setFilmsFromApi(response);
-      console.log(filmsFromApi);
     });
     //empty array to call to the api just ONCE
   }, []);

@@ -1,5 +1,5 @@
 import HeaderHomePage from "./HeaderHomePage";
-import FilmList from './FilmList'
+import FilmList from "./FilmList";
 
 const HomePage = (props) => {
   return (
@@ -8,7 +8,10 @@ const HomePage = (props) => {
         searchEngine={props.searchEngine}
         handleSearchEngine={props.handleSearchEngine}
       />
-      <FilmList filmsFromApi={props.filmsFromApi}/>
+      <FilmList
+        filmsFromApi={props.filmsFromApi}
+        searchEngine={props.searchEngine}
+      />
     </>
   );
 };
