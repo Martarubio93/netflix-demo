@@ -1,6 +1,7 @@
+import '../styles/layout/FilmListHome.scss'
+
 const FilmList = (props) => {
   const renderList = () => {
-    debugger
     return (
       props.filmsFromApi
          .filter((film )=> {
@@ -8,9 +9,9 @@ const FilmList = (props) => {
     })
         .map((film, index) => {
           return (
-            <li key={index} id={film.id}>
-              <h3>{film.name}</h3>
-              <img src={film.image} alt="film"></img>
+            <li key={index} id={film.id} className="filmListContainer__item">
+              <h3 className="filmListContainer__item--title">{film.name}</h3>
+              <img className="filmListContainer__item--img"src={film.image} alt="film"></img>
             </li>
           );
         })
@@ -19,7 +20,7 @@ const FilmList = (props) => {
 
   return (
     <section>
-      <ul>{renderList()}</ul>
+      <ul className="filmListContainer">{renderList()}</ul>
     </section>
   );
 };

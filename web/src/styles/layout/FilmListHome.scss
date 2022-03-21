@@ -1,0 +1,23 @@
+.filmListContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  text-align: center;
+  align-items: center;
+  padding-top: 150px;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    margin: auto;
+  }
+  &__item{
+    list-style-type: none;
+    margin: auto;
+    &--title{
+      color: white;
+      object-fit: contain;
+      font-size: 15px;
+      text-align: center;
+    }
+    
+  }
+}

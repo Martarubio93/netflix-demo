@@ -1,0 +1,79 @@
+
+
+.Dropdown {
+  margin: 10px;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu {
+   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+
+.homePageHeader {
+  //Si ponemos aqui el space-between no funciona para desktop como queremos. Antes de la modificacion solo estaba en menu
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #191919;
+  opacity: 0, 8;
+  position: fixed;
+  color: white;
+  width: 100%;
+  @media (min-width:768px){
+
+  }
+  
+
+  &__optionsNavList {
+    display: none;
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      &--item {
+        margin: 10px;
+        list-style-type: none;
+      }
+    }
+  }
+  &__actionsNavList {
+    display: flex;
+    flex-direction: row;
+    &--item {
+      margin: 10px;
+      list-style-type: none;
+    }
+    &--img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.input-wrapper {
+  display: none;
+  @media (min-width: 768px) {
+    display: list-item;
+    position: relative;
+    width: 271px;
+    &__input {
+      box-sizing: border-box;
+      color: #191919;
+      padding: 5px 5px 5px 35px;
+      width: 100%;
+      &--icon {
+        color: #191919;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

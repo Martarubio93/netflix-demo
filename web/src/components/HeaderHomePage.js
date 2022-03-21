@@ -1,6 +1,6 @@
 import bell from "../images/bell-solid.svg";
 import "bootstrap/dist/css/bootstrap.min.css"; //adding bootstrap
-import "../styles/layout/HomePage.scss";
+import "../styles/layout/HeaderHomePage.scss";
 import {
   Dropdown,
   DropdownToggle,
@@ -32,7 +32,7 @@ const HeaderHomePage = (props) => {
       >
         <DropdownToggle caret></DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Home page</DropdownItem>
+          <DropdownItem>Home</DropdownItem>
           <DropdownItem>Tv Series</DropdownItem>
           <DropdownItem>Films</DropdownItem>
           <DropdownItem>My List</DropdownItem>
@@ -43,7 +43,7 @@ const HeaderHomePage = (props) => {
         <div className="homePageHeader__optionsContainer">
           <nav className="homePageHeader__optionsNav">
             <ul className="homePageHeader__optionsNavList">
-              <li className="homePageHeader__optionsNavList--item">HomePage</li>
+              <li className="homePageHeader__optionsNavList--item">Home</li>
               <li className="homePageHeader__optionsNavList--item">
                 TV Series
               </li>
@@ -59,7 +59,7 @@ const HeaderHomePage = (props) => {
                 <div className="input-wrapper">
                   <input
                     type="search"
-                    className="input"
+                    className="input-wrapper__input"
                     placeholder="title, gender..."
                     onChange={handleInput}
                     value={props.searchEngine}
@@ -67,7 +67,7 @@ const HeaderHomePage = (props) => {
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="input-icon"
+                    className="input-wrapper__input--icon"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >

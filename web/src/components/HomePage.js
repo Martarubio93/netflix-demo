@@ -3,7 +3,7 @@ import FilmList from "./FilmList";
 
 const HomePage = (props) => {
   return (
-    <>
+    <div className="HomePage">
       <HeaderHomePage
         searchEngine={props.searchEngine}
         handleSearchEngine={props.handleSearchEngine}
@@ -12,7 +12,7 @@ const HomePage = (props) => {
         filmsFromApi={props.filmsFromApi}
         searchEngine={props.searchEngine}
       />
-    </>
+    </div>
   );
 };
 
