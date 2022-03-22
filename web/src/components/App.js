@@ -12,6 +12,8 @@ import apiUser from "../services/api";
 import callToApi from "../services/fetch";
 //functionals imports
 import { Route, Switch } from "react-router-dom";
+//LocalStorage
+import ls from '../services/localStorage'
 
 function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");

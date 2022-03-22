@@ -1,5 +1,9 @@
-.logo{
-    width: 200px;
-    height: 300px;
-    
+.martflix{
+    width: 70px;
+    margin: 20px;
+    @media (min-width:768px){
+        width: 150px;
+        
+    }
+  
 }

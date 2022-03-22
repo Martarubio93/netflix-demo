@@ -1,37 +1,49 @@
 import "../styles/layout/SignIn.scss";
-import React, { useState } from 'react';
-
+import React, { useState, useEffect} from "react";
+//LocalStorage
+import ls from '../services/localStorage'
 
 const SignIn = (props) => {
-  const [email, setEmail] =useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState(ls.get
+    ('email', ''));
+  const [password, setPassword] = useState(ls.get('password',''));
+  const [remeberMe, setRememberMe] = useState(false);
 
-  const handleEmailOrPhone = ev => {
-    setEmail(ev.currentTarget.value)
-  }
 
-  const handlePassword = ev => {
-    setPassword(ev.currentTarget.value)
-  }
+useEffect(() => {
+  ls.set('email', email)
+  ls.set('password', password)
+},[remeberMe])
 
-  const handleForm = ev => {
-    ev.preventDefault()
+  const handleEmailOrPhone = (ev) => {
+    setEmail(ev.currentTarget.value);
+  };
+
+  const handlePassword = (ev) => {
+    setPassword(ev.currentTarget.value);
+  };
+
+  const handleForm = (ev) => {
+    ev.preventDefault();
     props.sendLoginToApi({
-      email: email, 
-      password: password
-    })
-    
-  }
+      email: email,
+      password: password,
+    });
+  };
+
+  const handleRememberMe = () => {
+     setRememberMe(!remeberMe);
+  };
 
   const renderErrorMessage = () => {
-    if (props.loginErrorMessage !== ""){
+    if (props.loginErrorMessage !== "") {
       return (
         <p>
           Error en el login: <span>{props.loginErrorMessage}</span>
         </p>
-      )
+      );
     }
-  }
+  };
   return (
     <main>
       <div className="SignInContainer">
@@ -50,7 +62,7 @@ const SignIn = (props) => {
           <input
             className="SignInContainer__form--input"
             id="password"
-            type="text"
+            type="password"
             placeholder="Password"
             title="password"
             value={password}
@@ -66,7 +78,11 @@ const SignIn = (props) => {
           </div>
           <div className="formDetails">
             <div>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={ls !== '' ? true : false}
+                onClick={handleRememberMe}
+              />
               <label className="formDetails__remember" htmlFor="">
                 Remember me
               </label>
