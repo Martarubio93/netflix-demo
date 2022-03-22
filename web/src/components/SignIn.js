@@ -1,19 +1,17 @@
 import "../styles/layout/SignIn.scss";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 //LocalStorage
-import ls from '../services/localStorage'
+import ls from "../services/localStorage";
 
 const SignIn = (props) => {
-  const [email, setEmail] = useState(ls.get
-    ('email', ''));
-  const [password, setPassword] = useState(ls.get('password',''));
+  const [email, setEmail] = useState(ls.get("email", ""));
+  const [password, setPassword] = useState(ls.get("password", ""));
   const [remeberMe, setRememberMe] = useState(false);
 
-
-useEffect(() => {
-  ls.set('email', email)
-  ls.set('password', password)
-},[remeberMe])
+  useEffect(() => {
+    ls.set("email", email);
+    ls.set("password", password);
+  }, [remeberMe]);
 
   const handleEmailOrPhone = (ev) => {
     setEmail(ev.currentTarget.value);
@@ -32,7 +30,7 @@ useEffect(() => {
   };
 
   const handleRememberMe = () => {
-     setRememberMe(!remeberMe);
+    setRememberMe(!remeberMe);
   };
 
   const renderErrorMessage = () => {
@@ -80,7 +78,7 @@ useEffect(() => {
             <div>
               <input
                 type="checkbox"
-                checked={ls !== '' ? true : false}
+                checked={remeberMe}
                 onClick={handleRememberMe}
               />
               <label className="formDetails__remember" htmlFor="">
