@@ -1,5 +1,7 @@
 import "../styles/layout/SignIn.scss";
+import "../styles/core/Reset.scss"
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 //LocalStorage
 import ls from "../services/localStorage";
 
@@ -36,8 +38,8 @@ const SignIn = (props) => {
   const renderErrorMessage = () => {
     if (props.loginErrorMessage !== "") {
       return (
-        <p>
-          Error en el login: <span>{props.loginErrorMessage}</span>
+        <p className="errorLoginMessage">
+        <span>{props.loginErrorMessage}</span>
         </p>
       );
     }
@@ -87,8 +89,12 @@ const SignIn = (props) => {
             </div>
 
             <small className="formDetails__help">Need help?</small>
-          </div>
-          {renderErrorMessage()}
+          
+          </div>         
+             {renderErrorMessage()}
+             <Link style={{ textDecoration: 'none' }}>
+              <h5 className="formDetails__createAnAccount">You don't have an account? Click here to Sign up!</h5>
+            </Link>
         </form>
       </div>
     </main>
