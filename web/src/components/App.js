@@ -12,11 +12,14 @@ import apiUser from "../services/api";
 import callToApi from "../services/fetch";
 //functionals imports
 import { Route, Switch } from "react-router-dom";
+//LocalStorage
+
 
 function App() {
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   const [searchEngine, setSearchEngine] = useState("");
   const [filmsFromApi, setFilmsFromApi] = useState([]);
+  const [favouriteFilm, setFavouriteFilm] = useState([]);
 
   //Handle function to save value from inputs
   const handleSearchEngine = (data) => {

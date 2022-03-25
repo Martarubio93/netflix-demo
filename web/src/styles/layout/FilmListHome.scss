@@ -13,11 +13,16 @@
     list-style-type: none;
     margin: auto;
     &--title{
-      color: white;
+      color: black;
       object-fit: contain;
-      font-size: 15px;
+      font-size: 17px;
       text-align: center;
     }
     
   }
+}
+
+
+.detailedLink{
+  text-decoration: none;
 }

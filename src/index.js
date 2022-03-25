@@ -38,7 +38,7 @@ server.post('/login', (req, res) => {
   })
   : res.json({
     success: false,
-  errorMessage: 'Usuaria/o no encontrado'  })
+  errorMessage: 'Sorry, your email or password are not correct'  })
 })
 
 
