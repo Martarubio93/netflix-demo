@@ -26,7 +26,7 @@ const SignIn = (props) => {
   const renderErrorMessage = () => {
     if (props.loginErrorMessage !== ""){
       return (
-        <p>
+        <p className="ErrorSignIn">
           Error en el login: <span>{props.loginErrorMessage}</span>
         </p>
       )

@@ -40,3 +40,9 @@ server.post('/login', (req, res) => {
     success: false,
   errorMessage: 'Usuaria/o no encontrado'  })
 })
+
+
+//config static server
+
+const staticServerPath = "./src/public-react";
+server.use(express.static(staticServerPath));
