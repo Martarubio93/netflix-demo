@@ -17,10 +17,16 @@ import { Route, Switch } from "react-router-dom";
 
 
 function App() {
+  //Login error message
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
+  //SignUp error message
+  const [signUpErrorMessage, setSignUpErrorMessage] =useState("");
+  //Search-engine filter
   const [searchEngine, setSearchEngine] = useState("");
+  //Films from API 
   const [filmsFromApi, setFilmsFromApi] = useState([]);
-  const [favouriteFilm, setFavouriteFilm] = useState([]);
+  
+
 
   //Handle function to save value from inputs
   const handleSearchEngine = (data) => {
@@ -45,6 +51,23 @@ function App() {
       }
     });
   };
+
+  //Send Sign Up to API
+  const sendSignUpToApi = data => {
+    // We've to clear the errorMessage
+    setSignUpErrorMessage('');
+    //Send data to the API 
+    apiUser.sendSignUpToApi(data).then(response => {
+      //if data is correct redirect to main page
+      if (response.success === true){
+        router.redirect('/')
+       // if data is not correct error Message
+      }else {
+        setSignUpErrorMessage(response.errorMessage)
+      }
+    })
+
+  }
   //Receiving films from API
   useEffect(() => {
     callToApi().then((response) => {
@@ -67,11 +90,17 @@ function App() {
             />
           </div>
         </Route>
+        <Route exact path="/HomePage">
+          <HomePage
+            searchEngine={searchEngine}
+            handleSearchEngine={handleSearchEngine}
+            filmsFromApi={filmsFromApi}
+          />
+        </Route>
         <Route exact path="/SingUp">
-          <SignUp/>
+          <SignUp sendSignUpToApi={sendSignUpToApi}/>
         </Route>
         <Route>
-
         </Route>
         <Route exact path="/HomePage">
           <HomePage

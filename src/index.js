@@ -6,15 +6,15 @@ const cors = require("cors");
 const Database = require('better-sqlite3')
 
 
-// Creamos el servidor
+// Create server
 const server = express();
 
-// Configuramos el servidor
+// Config server
 server.use(cors());
 server.use(express.json());
 
-// Arrancamos el servidor en el puerto 3000
-const serverPort = 4000;
+// run server 3000 port 
+const serverPort = 3000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
@@ -23,6 +23,8 @@ const db = new Database('./src/database.db', {
   verbose: console.log
 })
 
+
+//endpoint login
 
 server.post('/login', (req, res) => {
   console.log(req.body)
@@ -41,7 +43,31 @@ server.post('/login', (req, res) => {
   errorMessage: 'Sorry, your email or password are not correct'  })
 })
 
+//endpoint singUp
 
+server.post("/signUp", (req, res)=> {
+  const email = req.body.email;
+  const password = req.body.password;
+  const selectUser = db.prepare('SELECT * FROM users WHERE email = ?')
+  const foundUser = selectUser.get(email);
+
+  if (foundUser === undefined){
+    const query = db.prepare(
+      "INSERT INTO users (email, password) VALUES (?, ?)"
+    )
+    const addUser = query.run(email, password);
+    res.json({
+      success:true,
+      userId: addUser.lastInsertRowid,
+    });
+
+  }else {
+    res.json({
+      success: false,
+      message: "The user already exists "
+    })
+  }
+})
 //config static server
 
 const staticServerPath = "./src/public-react";
