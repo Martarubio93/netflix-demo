@@ -92,7 +92,7 @@ const SignIn = (props) => {
           
           </div>         
              {renderErrorMessage()}
-             <Link style={{ textDecoration: 'none' }}>
+             <Link to="/SingUp"style={{ textDecoration: 'none' }}>
               <h5 className="formDetails__createAnAccount">You don't have an account? Click here to Sign up!</h5>
             </Link>
         </form>

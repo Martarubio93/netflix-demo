@@ -4,6 +4,7 @@ import "../styles/layout/Main.scss";
 //Components imports
 import Header from "./Header";
 import SignIn from "./SignIn";
+import SignUp from './SignUp';
 import router from "../services/router";
 import HomePage from "./HomePage";
 import { useEffect, useState } from "react";
@@ -25,9 +26,7 @@ function App() {
   const handleSearchEngine = (data) => {
     if (data.key === "name") {
       setSearchEngine(data.value);
-    } else if (data.key === "") {
-      console.log("lalio");
-    }
+    } 
   };
 
   //CONNECTIONS WITH SERVERS
@@ -67,6 +66,12 @@ function App() {
               loginErrorMessage={loginErrorMessage}
             />
           </div>
+        </Route>
+        <Route exact path="/SingUp">
+          <SignUp/>
+        </Route>
+        <Route>
+
         </Route>
         <Route exact path="/HomePage">
           <HomePage

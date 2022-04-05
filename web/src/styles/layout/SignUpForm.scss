@@ -1,0 +1,103 @@
+.headerSignUp {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  &__icon {
+    width: 120px;
+    margin: 20px;
+  }
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  height: max-content;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: black;
+  opacity: 0.8;
+  &__title {
+    font-family: sans-serif;
+    margin: 10px;
+    color: white;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 22px;
+  width: max-content;
+  background-color: black;
+  opacity: 0.8;
+  &__input {
+    height: 45px;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 11px 0 15px 15px;
+  }
+  &__label {
+    font-size: 14px;
+    color: gray;
+    width: 100%;
+    padding-bottom: 7px;
+    margin-top: 13px;
+  }
+  &__together {
+    @media all and (min-width: 1200px) {
+      display: flex;
+    }
+
+    &--firstName {
+      color: gray;
+      margin-top: 13px;
+    }
+
+    @media all and (min-width: 1200px) {
+      width: 50%;
+      margin-right: 22px;
+    }
+
+    &--surname {
+      @media all and (min-width: 1200px) {
+        width: 50%;
+        margin-left: 22px;
+      }
+    }
+  }
+}
+
+.container-buttom {
+  @media (min-width: 768px) {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.container-button__item {
+  background-color: red;
+  text-transform: uppercase;
+  color: white;
+  border: 0;
+  height: 45px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    height: 45px;
+    width: 206px;
+  }
+}
