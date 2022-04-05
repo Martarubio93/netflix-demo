@@ -53,21 +53,20 @@ function App() {
   };
 
   //Send Sign Up to API
-  const sendSignUpToApi = data => {
-    // We've to clear the errorMessage
+  const sendInfoToApi = data => {
+    // Limpiamos el error antes de enviar los datos al API
     setSignUpErrorMessage('');
-    //Send data to the API 
-    apiUser.sendSignUpToApi(data).then(response => {
-      //if data is correct redirect to main page
-      if (response.success === true){
-        router.redirect('/')
-       // if data is not correct error Message
-      }else {
-        setSignUpErrorMessage(response.errorMessage)
+    // Enviamos los datos al API
+    apiUser.sendSingUpToApi(data).then(response => {
+      if (response.success === true) {
+        // Si la usuaria introduce bien sus datos redireccionamos desde la página de signup al inicio de la página
+        router.redirect('/');
+      } else {
+        // Si la usuaria introduce mal sus datos guardamos el error que nos devuelve el API para que se pinte en la página
+        setSignUpErrorMessage(response.errorMessage);
       }
-    })
-
-  }
+    });
+  };
   //Receiving films from API
   useEffect(() => {
     callToApi().then((response) => {
@@ -98,7 +97,7 @@ function App() {
           />
         </Route>
         <Route exact path="/SingUp">
-          <SignUp sendSignUpToApi={sendSignUpToApi}/>
+          <SignUp sendInfoToApi ={sendInfoToApi}/>
         </Route>
         <Route>
         </Route>

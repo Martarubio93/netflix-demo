@@ -14,7 +14,7 @@ server.use(cors());
 server.use(express.json());
 
 // run server 3000 port 
-const serverPort = 3000;
+const serverPort = 4000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
@@ -27,7 +27,6 @@ const db = new Database('./src/database.db', {
 //endpoint login
 
 server.post('/login', (req, res) => {
-  console.log(req.body)
   const loginEmail = req.body.email;
   const loginPassword = req.body.password;
   const query = db.prepare(
@@ -45,7 +44,8 @@ server.post('/login', (req, res) => {
 
 //endpoint singUp
 
-server.post("/signUp", (req, res)=> {
+server.post("/signup", (req, res)=> {
+  console.log('peticion a la ruta')
   const email = req.body.email;
   const password = req.body.password;
   const selectUser = db.prepare('SELECT * FROM users WHERE email = ?')

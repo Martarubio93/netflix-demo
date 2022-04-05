@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "./static/css/main.9d98b15b.css",
-    "main.js": "./static/js/main.a999b486.js",
+    "main.js": "./static/js/main.f8c835a8.js",
     "static/media/logo.svg": "./static/media/logo.39d623b0ffd686d8b2126141443bb895.svg",
     "static/media/bell-solid.svg": "./static/media/bell-solid.e55bc98e832d3c9efb3329681f37fd8e.svg",
     "index.html": "./index.html",
     "main.9d98b15b.css.map": "./static/css/main.9d98b15b.css.map",
-    "main.a999b486.js.map": "./static/js/main.a999b486.js.map"
+    "main.f8c835a8.js.map": "./static/js/main.f8c835a8.js.map"
   },
   "entrypoints": [
     "static/css/main.9d98b15b.css",
-    "static/js/main.a999b486.js"
+    "static/js/main.f8c835a8.js"
   ]
 }

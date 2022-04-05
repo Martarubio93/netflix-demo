@@ -3,30 +3,30 @@ import icon from "../images/logo.svg";
 import "../styles/layout/SignUpForm.scss";
 
 const SignUp = (props) => {
-  const [email, setEmail] = useState('');
-  const [confirmEmail, setConfirmEmail] =  useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleEmail = ev => {
+  const handleEmail = (ev) => {
+   
     setEmail(ev.currentTarget.value);
+    console.log(email)
+  };
+  {
   }
-  const handleEmailConfirmation = ev => {
-    setConfirmEmail(ev.currentTarget.value)
-  }
-  const handlePassword = ev => {
-    setPassword(ev.currentTarget.value)
-  }
-  const handlePasswordConfirmation = ev => {
-    setConfirmPassword(ev.currentTarget.value)
+  const handlePassword = (ev) => {
+    
+    setPassword(ev.currentTarget.value);
+    console.log(password)
+  };
+  {
   }
 
-  const handleForm = ev => {
+  const handleForm = (ev) => {
     ev.preventDefault();
     // Send data to app and this to server
-    props.sendSingUpToApi({
+    props.sendInfoToApi({
       email: email,
-      password: password
+      password: password,
     });
   };
   return (
@@ -37,7 +37,12 @@ const SignUp = (props) => {
       <main>
         <fieldset className="fieldset">
           <h2 className="fieldset__title">Create a new account</h2>
-          <form className="form" action="SignUp" method="POST" onSubmit={handleForm}>
+          <form
+            className="form"
+            action="SignUp"
+            method="POST"
+            onSubmit={handleForm}
+          >
             <div class="form__together">
               <div class="form__together--email">
                 <div class="label_block">
@@ -79,16 +84,7 @@ const SignUp = (props) => {
               onChange={handleEmail}
               required
             />
-            <label class="form__label" for="email">
-              Confirm email address<span class="span_contact"> *</span>
-            </label>
-            <input
-              class="form__input"
-              id="email"
-              type="text"
-              placeholder="email@hotmail..."
-              required
-            />
+
             <label class="form__label" for="email">
               Choose a password<span class="span_contact"> *</span>
             </label>
@@ -99,16 +95,6 @@ const SignUp = (props) => {
               placeholder="*******"
               value={password}
               onChange={handlePassword}
-              required
-            />
-            <label class="form__label" for="email">
-              Confirm your password<span class="span_contact"> *</span>
-            </label>
-            <input
-              class="form__input"
-              id="password"
-              type="password"
-              placeholder="*******"
               required
             />
 

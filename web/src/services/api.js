@@ -1,6 +1,6 @@
 const sendLoginToApi = (data) => {
   console.log("Sending data to login:", data);
-  return fetch("http://localhost:3000/login", {
+  return fetch("http://localhost:4000/login", {
     method: "POST",
     //Send email and password by body params
     body: JSON.stringify(data),
@@ -14,23 +14,27 @@ const sendLoginToApi = (data) => {
     });
 };
 
-const sendSignUpToApi = () => {
-  return fetch('http://localhost:3000/signUp', {
+const sendSingUpToApi = (data) => {
+  console.log("Sending data to signUp:", data);
+  return fetch("http://localhost:4000/signup", {
     method: "POST",
+  
     body: JSON.stringify(data),
     headers: {
-      "Conten-Type": "application/json",
+      "Content-Type": "application/json",
     },
   })
-  .then((response) => response.json())
-  .then((data) => {
-    return data
-  })
-}
+    .then((response) => response.json())
+    .then((data) => {
+      return data; //server response
+    });
+};
+
+
 
 const objToExport = {
   sendLoginToApi: sendLoginToApi,
-  sendSignUpToApi :sendSignUpToApi,
+  sendSingUpToApi :sendSingUpToApi,
 };
 
 export default objToExport;
