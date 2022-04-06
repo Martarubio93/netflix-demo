@@ -10,12 +10,12 @@ const FilmList = (props) => {
           .includes(props.searchEngine.toLowerCase());
       })
       .map((film, index) => {
-        return <EachFilm index={index} film={film} />;
+        return <EachFilm key={index} film={film} />;
       });
   };
 
   return (
-    <section className="filmsSection"key="1">
+    <section className="filmsSection" >
       <ul className="filmListContainer">{renderList()}</ul>
     </section>
   );

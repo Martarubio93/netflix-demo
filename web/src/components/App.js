@@ -102,8 +102,6 @@ function App() {
           <SignUp sendInfoToApi ={sendInfoToApi} signUpErrorMessage={signUpErrorMessage}/>
           </div>
         </Route>
-        <Route>
-        </Route>
         <Route exact path="/HomePage">
           <HomePage
             searchEngine={searchEngine}

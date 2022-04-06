@@ -10,15 +10,15 @@ const SignUp = (props) => {
     setEmail(ev.currentTarget.value);
     console.log(email)
   };
-  {
-  }
+ 
+
   const handlePassword = (ev) => {
     
     setPassword(ev.currentTarget.value);
     console.log(password)
   };
-  {
-  }
+  
+  
 
   const handleForm = (ev) => {
     ev.preventDefault();
