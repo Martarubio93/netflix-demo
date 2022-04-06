@@ -1,5 +1,5 @@
-import "../styles/layout/FilmListHome.scss";
-import EachFilm from './EachFilm';
+import "../styles/layout/FilmList.scss";
+import EachFilm from "./EachFilm";
 
 const FilmList = (props) => {
   const renderList = () => {
@@ -10,16 +10,13 @@ const FilmList = (props) => {
           .includes(props.searchEngine.toLowerCase());
       })
       .map((film, index) => {
-        return (
-          <EachFilm index={index} film={film}/>
-          
-        );
+        return <EachFilm index={index} film={film} />;
       });
   };
 
   return (
-    <section key="1">
-      <ul className="filmListContainer" >{renderList()}</ul>
+    <section className="filmsSection"key="1">
+      <ul className="filmListContainer">{renderList()}</ul>
     </section>
   );
 };

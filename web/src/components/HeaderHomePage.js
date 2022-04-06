@@ -60,7 +60,7 @@ const HeaderHomePage = (props) => {
                   <input
                     type="search"
                     className="input-wrapper__input"
-                    placeholder="title, gender..."
+                    placeholder="title..."
                     onChange={handleInput}
                     value={props.searchEngine}
                   />
@@ -86,7 +86,7 @@ const HeaderHomePage = (props) => {
                   alt="notifications"
                 ></img>
               </li>
-              <li className="homePageHeader__actionsNavList--item">FOTO</li>
+
             </ul>
           </nav>
         </div>

@@ -1,3 +1,5 @@
+@import "../core/Variables.scss";
+
 .fieldset {
   display: flex;
   flex-direction: column;
@@ -6,37 +8,24 @@
   margin-right: auto;
   width: max-content;
   height: max-content;
-  background-color: black;
+  background-color: $colorBlack;
   &__title {
-    font-family: sans-serif;
-    padding: 16px;
-    color: white;
+    @include formContainerTitle;
   }
 }
 
 .form {
-  object-fit: contain;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 15px;
-  margin-right: 15px;
-  width: auto;
+  @include form;
   @media (min-width: 768px) {
     gap: 5px;
   }
 
   &__input {
-    height: 45px;
-    font-size: 16px;
-    border: 1px solid;
-    padding: 11px 0 15px 15px;
-    outline: none;
-    border: none;
+    @include inputForm;
   }
   &__label {
-    font-size: 14px;
-    color: gray;
+    font-size: 17px;
+    color: $gray;
     width: 100%;
     padding-bottom: 7px;
     @media (min-width: 768px) {
@@ -69,17 +58,7 @@
 }
 
 .container-button__item {
-  background-color: red;
-  text-transform: uppercase;
-  color: white;
-  border: 0;
-  height: 45px;
-  width: 100%;
-  margin-top: 22px;
-  margin-bottom: 22px;
-  border-radius: 4px;
-  font-size: 16px;
-
+  @include btnForm;
   @media (min-width: 768px) {
     height: 45px;
     width: 206px;
@@ -87,7 +66,6 @@
 }
 
 .errorSignUpMessage {
-  color: white;
+  color: $colorWhite;
   padding: 20px;
- 
 }

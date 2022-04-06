@@ -1,4 +1,4 @@
-
+@import '../core/Variables.scss';
 
 .Dropdown {
   margin: 10px;
@@ -13,16 +13,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  background-color: #191919;
+  background-color: $colorBlack;
   opacity: 0, 8;
   position: fixed;
-  color: white;
+  color: $colorWhite;
   width: 100%;
-  @media (min-width:768px){
-
-  }
-  
-
+ 
   &__optionsNavList {
     display: none;
     @media (min-width: 768px) {
@@ -49,25 +45,28 @@
 }
 
 .input-wrapper {
-  display: none;
+  display: list-item;
+  position: relative;
+  width: 180px;
   @media (min-width: 768px) {
     display: list-item;
     position: relative;
-    width: 271px;
+    width: 271px;}
+
     &__input {
       box-sizing: border-box;
-      color: #191919;
+      color: $colorBlack;
       padding: 5px 5px 5px 35px;
       width: 100%;
       &--icon {
-        color: #191919;
+        color: $colorBlack;
         position: absolute;
         width: 20px;
         height: 20px;
         left: 12px;
         top: 50%;
         transform: translateY(-50%);
-      }
+      
     }
   }
 }

@@ -1,0 +1,25 @@
+@import '../core/Variables.scss';
+
+
+.filmsSection {
+  padding-top: 50px;
+}
+
+.filmListContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-top: 50px;
+  justify-items: center;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__item {
+    list-style-type: none;
+    &--title {
+      color: $colorBlack;
+      object-fit: contain;
+      font-size: 17px;
+      text-align: center;
+    }
+  }
+}

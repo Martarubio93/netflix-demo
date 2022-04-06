@@ -1,0 +1,51 @@
+
+//Colors
+$colorBlack: #000000;
+$colorWhite: white;
+$colorRed: #ce2d11;
+$gray: gray;
+
+
+//Font
+$fontFamily:  sans-serif;
+
+//Mixins FORMS
+@mixin formContainerTitle {
+  color: $colorWhite;
+  font-family: sans-serif;
+  padding: 16px;
+}
+
+@mixin form {
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: auto;
+}
+
+@mixin inputForm {
+  height: 45px;
+  font-size: 15px;
+  border: 1px solid;
+  padding: 11px 0 15px 15px;
+  outline: none;
+  border: none;
+  font-family: $fontFamily;
+}
+
+@mixin btnForm {
+  background-color: $colorRed;
+  text-transform: uppercase;
+  color: $colorWhite;
+  border: 0;
+  height: 45px;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: $fontFamily;
+}
