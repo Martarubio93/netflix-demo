@@ -9,7 +9,6 @@ const callToApi = () => {
           image: film.image.medium,
         };
       });
-      console.log(results);
       return results;
     });
 };

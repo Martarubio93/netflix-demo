@@ -2,37 +2,34 @@
 import "../styles/core/Reset.scss";
 import "../styles/layout/Main.scss";
 //Components imports
-import Header from './Header'
+import Header from "./Header";
 import SignIn from "./SignIn";
-import SignUp from './SignUp';
-import router from "../services/router";
+import SignUp from "./SignUp";
 import HomePage from "./HomePage";
+import FilmDetail from "./FilmDetail";
 import { useEffect, useState } from "react";
 //Fetch imports
 import apiUser from "../services/api";
 import callToApi from "../services/fetch";
 //functionals imports
-import { Route, Switch } from "react-router-dom";
-//LocalStorage
-
+import { Route, Switch, useRouteMatch } from "react-router-dom";
+import router from "../services/router";
 
 function App() {
   //Login error message
   const [loginErrorMessage, setLoginErrorMessage] = useState("");
   //SignUp error message
-  const [signUpErrorMessage, setSignUpErrorMessage] =useState("");
+  const [signUpErrorMessage, setSignUpErrorMessage] = useState("");
   //Search-engine filter
   const [searchEngine, setSearchEngine] = useState("");
-  //Films from API 
+  //Films from API
   const [filmsFromApi, setFilmsFromApi] = useState([]);
-  
-
 
   //Handle function to save value from inputs
   const handleSearchEngine = (data) => {
     if (data.key === "name") {
       setSearchEngine(data.value);
-    } 
+    }
   };
 
   //CONNECTIONS WITH SERVERS
@@ -53,16 +50,16 @@ function App() {
   };
 
   //Send Sign Up to API
-  const sendInfoToApi = data => {
-    // Limpiamos el error antes de enviar los datos al API
-    setSignUpErrorMessage('');
-    // Enviamos los datos al API
-    apiUser.sendSingUpToApi(data).then(response => {
+  const sendInfoToApi = (data) => {
+    // Clear error
+    setSignUpErrorMessage("");
+    // send data to API
+    apiUser.sendSingUpToApi(data).then((response) => {
       if (response.success === true) {
-        // Si la usuaria introduce bien sus datos redireccionamos desde la página de signup al inicio de la página
-        router.redirect('/');
+        // if data is correct redirect to home
+        router.redirect("/login");
       } else {
-        // Si la usuaria introduce mal sus datos guardamos el error que nos devuelve el API para que se pinte en la página
+        // if data is not correct we saved the error in state to render it later
         setSignUpErrorMessage(response.errorMessage);
       }
     });
@@ -70,19 +67,31 @@ function App() {
   //Receiving films from API
   useEffect(() => {
     callToApi().then((response) => {
-      console.log(response);
       //When we've received data from API, we keep it in state (filmsFromApi)
       setFilmsFromApi(response);
     });
     //empty array to call to the api just ONCE
   }, []);
 
+  const userData = useRouteMatch(`/film/:id`);
+
+  const getRoute = () => {
+    if (userData) {
+      const routeId = userData.params.id;
+      const findId = filmsFromApi.find((film) => {
+        return film.id === routeId;
+      });
+      console.log(findId);
+      return findId;
+    }
+  };
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
           <div className="imageBackground">
-          <Header />
+            <Header />
             <SignIn
               sendLoginToApi={sendLoginToApi}
               loginErrorMessage={loginErrorMessage}
@@ -97,12 +106,19 @@ function App() {
           />
         </Route>
         <Route exact path="/SingUp">
-        <div className="imageBackground">
-          <Header/>
-          <SignUp sendInfoToApi ={sendInfoToApi} signUpErrorMessage={signUpErrorMessage}/>
+          <div className="imageBackground">
+            <Header />
+            <SignUp
+              sendInfoToApi={sendInfoToApi}
+              signUpErrorMessage={signUpErrorMessage}
+            />
           </div>
         </Route>
-        <Route>
+        
+        <Route exact path="/film/:id">
+          <section className="detailContainer">
+            <FilmDetail getRoute={getRoute()} />
+          </section>
         </Route>
         <Route exact path="/HomePage">
           <HomePage
@@ -111,6 +127,7 @@ function App() {
             filmsFromApi={filmsFromApi}
           />
         </Route>
+        
       </Switch>
     </div>
   );

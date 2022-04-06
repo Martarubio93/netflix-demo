@@ -6,19 +6,15 @@ const SignUp = (props) => {
   const [password, setPassword] = useState("");
 
   const handleEmail = (ev) => {
-   
     setEmail(ev.currentTarget.value);
-    console.log(email)
   };
-  {
-  }
+  
+  
   const handlePassword = (ev) => {
-    
     setPassword(ev.currentTarget.value);
-    console.log(password)
   };
-  {
-  }
+  
+  
 
   const handleForm = (ev) => {
     ev.preventDefault();
@@ -30,15 +26,14 @@ const SignUp = (props) => {
   };
 
   const renderErrorMessage = () => {
-    console.log(props.signUpErrorMessage)
-    if (props.signUpErrorMessage !== ''){
+    if (props.signUpErrorMessage !== "") {
       return (
-        <p className="errorSignUpMessage"> Error :
-          <span>{props.signUpErrorMessage}</span>
+        <p className="errorSignUpMessage">
+          Error :<span>{props.signUpErrorMessage}</span>
         </p>
-      )
+      );
     }
-  }
+  };
   return (
     <>
       <main>
@@ -104,7 +99,7 @@ const SignUp = (props) => {
               onChange={handlePassword}
               required
             />
-  {renderErrorMessage()}
+            {renderErrorMessage()}
             <div class="container-button">
               <input
                 class="container-button__item"
@@ -112,7 +107,6 @@ const SignUp = (props) => {
                 value="create account"
               />
             </div>
-          
           </form>
         </fieldset>
       </main>

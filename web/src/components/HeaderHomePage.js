@@ -39,7 +39,6 @@ const HeaderHomePage = (props) => {
         </DropdownMenu>
       </Dropdown>
 
-
         <div className="homePageHeader__optionsContainer">
           <nav className="homePageHeader__optionsNav">
             <ul className="homePageHeader__optionsNavList">

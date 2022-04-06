@@ -1,6 +1,5 @@
-// Fichero src/index.js
 
-// Importamos los dos módulos de NPM necesarios para trabajar
+// Import npm modules needed 
 const express = require("express");
 const cors = require("cors");
 const Database = require('better-sqlite3')
@@ -45,7 +44,6 @@ server.post('/login', (req, res) => {
 //endpoint singUp
 
 server.post("/signup", (req, res)=> {
-  console.log('peticion a la ruta')
   const email = req.body.email;
   const password = req.body.password;
   const selectUser = db.prepare('SELECT * FROM users WHERE email = ?')
@@ -68,7 +66,8 @@ server.post("/signup", (req, res)=> {
     })
   }
 })
-//config static server
 
+
+//config static server
 const staticServerPath = "./src/public-react";
 server.use(express.static(staticServerPath));

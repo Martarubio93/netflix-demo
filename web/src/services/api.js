@@ -1,5 +1,4 @@
 const sendLoginToApi = (data) => {
-  console.log("Sending data to login:", data);
   return fetch("http://localhost:4000/login", {
     method: "POST",
     //Send email and password by body params
@@ -15,7 +14,6 @@ const sendLoginToApi = (data) => {
 };
 
 const sendSingUpToApi = (data) => {
-  console.log("Sending data to signUp:", data);
   return fetch("http://localhost:4000/signup", {
     method: "POST",
   

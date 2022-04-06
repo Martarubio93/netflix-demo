@@ -1,8 +1,7 @@
-// Fichero src/services/localStorage.js
+//LocalStorage
 
-// Función que obtiene una propiedad del local storage
-// Si esta propiedad no existe porque es la primera vez que la usuaria entra en la página la función devuelve el valor de defaultValue
-// Que esta función devuelva un valor por defecto es una cómoda manera de trabajar, así esta comprobación no la tenemos que hacer App.js
+// Function to obtain a property from LS
+//if this property does not exist because is user first time, the function return defaultValue and we can not to check it in App 
 const get = (key, defaultValue) => {
     const localStorageData = localStorage.getItem(key);
     if (localStorageData === null) {
@@ -12,33 +11,19 @@ const get = (key, defaultValue) => {
     }
   };
   
-  // Función que guarda una propiedad y su valor en el local storage
+  // function to save property in LS 
   const set = (key, value) => {
     const localStorageData = JSON.stringify(value);
     localStorage.setItem(key, localStorageData);
   };
   
-  // Función que borra una propiedad del local storage
-  const remove = key => {
-    localStorage.removeItem(key);
-  };
-  
-  // Función que limpia todo el local storage
-  const clear = () => {
-    localStorage.clear();
-  };
-  
-  // Creamos un objeto temporal que es el que queremos exportar
-  // Este objeto tiene la una propiedad get cuyo valor es la función get
-  // Este objeto tiene la una propiedad set cuyo valor es la función set
-  // Este objeto tiene la una propiedad remove cuyo valor es la función remove
-  // Este objeto tiene la una propiedad clear cuyo valor es la función clear
+
+
   const objectToExport = {
     get: get,
     set: set,
-    remove: remove,
-    clear: clear
+
   };
   
-  // Exportamos el objeto para que pueda ser usado desde App
+
   export default objectToExport;
