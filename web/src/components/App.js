@@ -97,7 +97,7 @@ function App() {
           />
         </Route>
         <Route exact path="/SingUp">
-          <SignUp sendInfoToApi ={sendInfoToApi}/>
+          <SignUp sendInfoToApi ={sendInfoToApi} signUpErrorMessage={signUpErrorMessage}/>
         </Route>
         <Route>
         </Route>

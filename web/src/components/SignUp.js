@@ -29,6 +29,16 @@ const SignUp = (props) => {
       password: password,
     });
   };
+
+  const renderErrorMessage = () => {
+    if (props.signUpErrorMessage !== ''){
+      return (
+        <p className="errorSignUpMessage">
+          <span>{props.signUpErrorMessage}</span>
+        </p>
+      )
+    }
+  }
   return (
     <>
       <header className="headerSignUp">
@@ -105,6 +115,7 @@ const SignUp = (props) => {
                 value="Enviar"
               />
             </div>
+            {renderErrorMessage()}
           </form>
         </fieldset>
       </main>
