@@ -1,6 +1,5 @@
 import { useState } from "react";
-import icon from "../images/logo.svg";
-import "../styles/layout/SignUpForm.scss";
+import "../styles/layout/SignUp.scss";
 
 const SignUp = (props) => {
   const [email, setEmail] = useState("");
@@ -31,9 +30,10 @@ const SignUp = (props) => {
   };
 
   const renderErrorMessage = () => {
+    console.log(props.signUpErrorMessage)
     if (props.signUpErrorMessage !== ''){
       return (
-        <p className="errorSignUpMessage">
+        <p className="errorSignUpMessage"> Error :
           <span>{props.signUpErrorMessage}</span>
         </p>
       )
@@ -41,9 +41,6 @@ const SignUp = (props) => {
   }
   return (
     <>
-      <header className="headerSignUp">
-        <img className="headerSignUp__icon" src={icon} alt="icon" />
-      </header>
       <main>
         <fieldset className="fieldset">
           <h2 className="fieldset__title">Create a new account</h2>
@@ -61,7 +58,7 @@ const SignUp = (props) => {
                   </label>
                 </div>
                 <input
-                  class="input__firstName"
+                  class="form__together--item"
                   id="name"
                   type="name"
                   placeholder="First name"
@@ -75,7 +72,7 @@ const SignUp = (props) => {
                   </label>
                 </div>
                 <input
-                  class="input__surname"
+                  class="form__together--item"
                   id="surname"
                   type="text"
                   placeholder="surname"
@@ -107,15 +104,15 @@ const SignUp = (props) => {
               onChange={handlePassword}
               required
             />
-
+  {renderErrorMessage()}
             <div class="container-button">
               <input
                 class="container-button__item"
                 type="submit"
-                value="Enviar"
+                value="create account"
               />
             </div>
-            {renderErrorMessage()}
+          
           </form>
         </fieldset>
       </main>

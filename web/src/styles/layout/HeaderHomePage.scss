@@ -7,18 +7,12 @@
   }
 }
 
-.menu {
-   display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  
-}
 
 .homePageHeader {
-  //Si ponemos aqui el space-between no funciona para desktop como queremos. Antes de la modificacion solo estaba en menu
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
   background-color: #191919;
   opacity: 0, 8;
   position: fixed;

@@ -13,8 +13,8 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-// run server 3000 port 
-const serverPort = 3000;
+// run server 4000 port 
+const serverPort = 4000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
@@ -64,7 +64,7 @@ server.post("/signup", (req, res)=> {
   }else {
     res.json({
       success: false,
-      message: "The user already exists "
+      errorMessage: "The user already exists "
     })
   }
 })

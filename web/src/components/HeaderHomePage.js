@@ -39,7 +39,7 @@ const HeaderHomePage = (props) => {
         </DropdownMenu>
       </Dropdown>
 
-      <div className="menu">
+
         <div className="homePageHeader__optionsContainer">
           <nav className="homePageHeader__optionsNav">
             <ul className="homePageHeader__optionsNavList">
@@ -90,7 +90,7 @@ const HeaderHomePage = (props) => {
             </ul>
           </nav>
         </div>
-      </div>
+
     </header>
   );
 };

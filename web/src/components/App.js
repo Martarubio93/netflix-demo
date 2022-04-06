@@ -2,7 +2,7 @@
 import "../styles/core/Reset.scss";
 import "../styles/layout/Main.scss";
 //Components imports
-import Header from "./Header";
+import Header from './Header'
 import SignIn from "./SignIn";
 import SignUp from './SignUp';
 import router from "../services/router";
@@ -82,7 +82,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <div className="imageBackground">
-            <Header />
+          <Header />
             <SignIn
               sendLoginToApi={sendLoginToApi}
               loginErrorMessage={loginErrorMessage}
@@ -97,7 +97,10 @@ function App() {
           />
         </Route>
         <Route exact path="/SingUp">
+        <div className="imageBackground">
+          <Header/>
           <SignUp sendInfoToApi ={sendInfoToApi} signUpErrorMessage={signUpErrorMessage}/>
+          </div>
         </Route>
         <Route>
         </Route>

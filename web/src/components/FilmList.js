@@ -1,4 +1,5 @@
 import "../styles/layout/FilmListHome.scss";
+import EachFilm from './EachFilm';
 
 const FilmList = (props) => {
   const renderList = () => {
@@ -10,14 +11,8 @@ const FilmList = (props) => {
       })
       .map((film, index) => {
         return (
-          <li key={index} id={film.id} className="filmListContainer__item">
-            <h3 className="filmListContainer__item--title">{film.name}</h3>
-            <img
-              className="filmListContainer__item--img"
-              src={film.image}
-              alt="film"
-            ></img>
-          </li>
+          <EachFilm index={index} film={film}/>
+          
         );
       });
   };
