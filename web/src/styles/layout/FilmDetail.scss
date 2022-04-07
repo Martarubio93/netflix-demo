@@ -56,7 +56,12 @@
 }
 
 .iconBack {
-  transform: translateY(-500%);
-  width: 40px;
+  width: 30px;
   margin: 20px;
+  @media (min-width: 768px){
+    transform: translateY(-450%);
+    width: 40px;
+  
+  }
+  
 }

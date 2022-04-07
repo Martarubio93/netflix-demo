@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../styles/layout/FilmList.scss"
 
 const EachFilm = (props) => {
   return (
@@ -8,7 +9,7 @@ const EachFilm = (props) => {
         id={props.film.id}
         className="filmListContainer__item"
       >
-        <Link to={`film/${props.film.id}`} style={{ textDecoration: "none" }}>
+        <Link className="filmListContainer__link"to={`film/${props.film.id}`} style={{ textDecoration: "none" }}>
           More details
         </Link>
         <h3 className="filmListContainer__item--title">{props.film.name}</h3>
