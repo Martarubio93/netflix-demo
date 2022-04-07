@@ -1,0 +1,62 @@
+@import "../core/Variables.scss";
+
+.detailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorBlack;
+  margin-top: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: min-content;
+  color: $colorWhite;
+  @media (min-width: 768px) {
+  }
+}
+
+.carddetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $colorWhite;
+  @media (min-width: 768px) {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+  }
+  &__name {
+    font-size: 30px;
+    @media (min-width: 768px) {
+      font-size: 60px;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    padding: 22px;
+    font-family: $fontFamily;
+    @media (min-width: 768px) {
+      margin-top: 30px;
+      padding: 54px;
+    }
+  }
+
+  &__img {
+    border-radius: 4%;
+  }
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+  }
+}
+
+.iconBack {
+  transform: translateY(-500%);
+  width: 40px;
+  margin: 20px;
+}

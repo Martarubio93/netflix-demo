@@ -81,7 +81,7 @@ const SignIn = (props) => {
               <input
                 type="checkbox"
                 checked={remeberMe}
-                onClick={handleRememberMe}
+                onChange={handleRememberMe}
               />
               <label className="formDetails__remember" htmlFor="remember me">
                 Remember me

@@ -64,6 +64,20 @@ function App() {
       }
     });
   };
+
+
+  const filmData = useRouteMatch(`/film/:id`);
+
+  const getRoute = () => {
+    if (filmData) {
+      const routeId = filmData.params.id;
+      const findId = filmsFromApi.find((film)=>{
+        return film.id === parseInt(routeId)
+      })
+      return findId;
+    }
+  };
+
   //Receiving films from API
   useEffect(() => {
     callToApi().then((response) => {
@@ -72,19 +86,6 @@ function App() {
     });
     //empty array to call to the api just ONCE
   }, []);
-
-  const userData = useRouteMatch(`/film/:id`);
-
-  const getRoute = () => {
-    if (userData) {
-      const routeId = userData.params.id;
-      const findId = filmsFromApi.find((film) => {
-        return film.id === routeId;
-      });
-      console.log(findId);
-      return findId;
-    }
-  };
 
   return (
     <div className="App">
@@ -114,12 +115,7 @@ function App() {
             />
           </div>
         </Route>
-        
-        <Route exact path="/film/:id">
-          <section className="detailContainer">
-            <FilmDetail getRoute={getRoute()} />
-          </section>
-        </Route>
+
         <Route exact path="/HomePage">
           <HomePage
             searchEngine={searchEngine}
@@ -127,7 +123,13 @@ function App() {
             filmsFromApi={filmsFromApi}
           />
         </Route>
-        
+        <Route  path="/film/:id">
+        <Header />
+          <section className="detailContainer">
+       
+            <FilmDetail getRoute={getRoute()} filmsFromApi={filmsFromApi} />
+          </section>
+        </Route>
       </Switch>
     </div>
   );
